@@ -1,0 +1,21 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  port: 5432
+  username: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database: senhas_development
+
+test:
+  <<: *default
+  database: senhas_test
+
+production:
+  <<: *default
+  database: senhas_production
